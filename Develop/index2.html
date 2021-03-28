@@ -4,17 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" href="../Assets/css/style.css" />
   </head>
   <body>
     <header>
       <div id="timer"></div>
     </header>
-    <div><h1>Coding Quiz</h1></div>
-    <div>
-      Try and answer the following code related questions within the time limit.
-      Incorrect answers will deduct score time by 10 seconds.
+    <div id="introduction">
+      <div><h1>Coding Quiz</h1></div>
+      <div>
+        Try and answer the following code related questions within the time
+        limit. Incorrect answers will deduct score time by 10 seconds.
+      </div>
+      <button id="start-button">Start Quiz</button>
     </div>
-    <button id="start button">Start Quiz</button>
+    <div id="container" class="hide">
+      <div id="question-container">
+        <div id="questions">Commonly used data types DO NOT INCLUDE:</div>
+        <div id="answer-buttons" class="button-grid"></div>
+      </div>
+      <button id="next-button" class="next-button">Next</button>
+    </div>
+
+    <script src="./script.js"></script>
   </body>
 </html>
