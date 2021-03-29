@@ -8,7 +8,7 @@ const introduction = document.getElementById("introduction");
 const answerButtonsElement = document.getElementById("answer-buttons");
 const container = document.getElementById("container");
 let currentQuestionIndex = 0;
-var timer = 60;
+var timer = 05;
 
 const questions = [
   {
@@ -57,13 +57,18 @@ function startQuiz() {
   setInterval(function () {
     timerSpanElement.innerHTML = `Timer: ${timer--}`;
   }, 1000);
+  if (timer < 0 || timer === 0) {
+    timerSpanElement.innerHTML = `Timer: ${0}`;
+  }
 }
 
 startButton.addEventListener("click", startQuiz);
 nextButton.addEventListener("click", () => {
-  currentQuestionIndex++;
-  answerButtonsElement.removeChild(answerButtonsElement.firstChild);
-  displayQuestion();
+  if (currentQuestionIndex < questions.length) {
+    currentQuestionIndex++;
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+    displayQuestion();
+  }
 });
 
 function displayQuestion() {
