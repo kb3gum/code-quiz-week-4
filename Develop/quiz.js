@@ -1,5 +1,3 @@
-// Question Bank
-
 const questionBank = [
   {
     question: "Commonly used data types DO NOT INCLUDE:",
@@ -35,7 +33,6 @@ const score = 0;
 
 //function to display questions
 function displayQuestion() {
-
   for (var a = 0; a < span.length; a++) {
     span[a].style.background = "none";
   }
@@ -53,62 +50,62 @@ function displayQuestion() {
 const verifyChoice = (event) => {
   const target = event.target;
   const currentTarget = event.currentTarget;
-  if (target.matches(“button”)) {
-    const answer = target.getAttribute(“data-answer”);
-    const correctAnswer = currentTarget.getAttribute(“data-answer”);
+  if (target.matches()) {
+    const answer = target.getAttribute();
+    const correctAnswer = currentTarget.getAttribute();
     if (answer === correctAnswer) {
       index += 1;
-      quizContainer.removeChild(document.getElementById(“questions-container”));
+      quizContainer.removeChild(document.getElementById());
       renderQuestion();
     } else {
-      alert(“Incorrect - Try Again”);
+      alert();
       timerValue -= 5;
     }
   }
-  
-// function to calculate score
 
-function calcScore(e) {
-  if (e.innerHTML === questionBank[i].answer && score < questionBank.length) {
-    score = score + 1;
+  // function to calculate score
+
+  function calcScore(e) {
+    if (e.innerHTML === questionBank[i].answer && score < questionBank.length) {
+      score = score + 1;
+    }
+
+    setTimeout(nextQuestion, 300);
   }
 
-  setTimeout(nextQuestion, 300);
-}
+  //function to display next question
 
-//function to display next question
-
-function nextQuestion() {
-  if (i < questionBank.length - 1) {
-    i = i + 1;
-    displayQuestion();
-  } else {
-    points.innerHTML = score + "/" + questionBank.length;
-    quizContainer.style.display = "none";
-    scorecard.style.display = "block";
+  function nextQuestion() {
+    if (i < questionBank.length - 1) {
+      i = i + 1;
+      displayQuestion();
+    } else {
+      points.innerHTML = score + "/" + questionBank.length;
+      quizContainer.style.display = "none";
+      scorecard.style.display = "block";
+    }
   }
-}
 
-// click events to next button
+  // click events to next button
 
-next.addEventListener("click", nextQuestion);
+  next.addEventListener("click", nextQuestion);
 
-// Back to Quiz button
-function backToQuiz() {
-  location.reload();
-}
-
-// fucntion to check answer
-
-function checkAnswers() {
-  var answerBank = document.getElementById("answerBank");
-  var answers = document.getElementById("answers");
-  answerBank.style.display = "block";
-  scorecard.style.display = "none";
-  for (var a = 0; a < questionBank.length; a++) {
-    var list = document.createElement("li");
-    list.innerHTML = questionBank[a].answer;
-    answers.appendChild(list);
+  // Back to Quiz button
+  function backToQuiz() {
+    location.reload();
   }
-}
-displayQuestion();
+
+  // function to check answer
+
+  function checkAnswers() {
+    var answerBank = document.getElementById("answerBank");
+    var answers = document.getElementById("answers");
+    answerBank.style.display = "block";
+    scorecard.style.display = "none";
+    for (var a = 0; a < questionBank.length; a++) {
+      var list = document.createElement("li");
+      list.innerHTML = questionBank[a].answer;
+      answers.appendChild(list);
+    }
+  }
+};
