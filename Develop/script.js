@@ -38,7 +38,7 @@ const questions = [
     title:
       "String values must be enclosed within__________ when being assigned to variables:",
     choices: ["Commas", "Curly Braces", "Parenthesis", "Quotes"],
-    correctAnswer: "Curly Braces",
+    correctAnswer: "Quotes",
   },
 
   {
@@ -71,20 +71,36 @@ nextButton.addEventListener("click", () => {
   }
 });
 
-function displayQuestion() {
-  var currentQuestion = questions[currentQuestionIndex];
-  document.getElementById("questions").innerHTML = currentQuestion.title;
-  var answers = currentQuestion.choices;
-  var buttonGrid = document.createElement("div");
-  for (let index = 0; index < answers.length; index++) {
-    const element = answers[index];
-    const button = document.createElement("button");
-    button.classList.add("button");
-    button.innerText = element;
-    buttonGrid.appendChild(button);
+const verifyChoice = (event) => {
+  const target = event.target;
+  const currentTarget = event.currentTarget;
+  if (target.matches()) {
+    const correctAnswer = target.getAttribute();
+    if (answer === correctAnswer) {
+      index += 1;
+      quizContainer.removeChild(document.getElementById());
+      renderQuestion();
+    } else {
+      alert();
+      timerValue -= 5;
+    }
   }
-  answerButtonsElement.appendChild(buttonGrid);
-}
+
+  function displayQuestion() {
+    var currentQuestion = questions[currentQuestionIndex];
+    document.getElementById("questions").innerHTML = currentQuestion.title;
+    var answers = currentQuestion.choices;
+    var buttonGrid = document.createElement("div");
+    for (let index = 0; index < answers.length; index++) {
+      const element = answers[index];
+      const button = document.createElement("button");
+      button.classList.add("button");
+      button.innerText = element;
+      buttonGrid.appendChild(button);
+    }
+    answerButtonsElement.appendChild(buttonGrid);
+  }
+};
 
 // function showQuestion(question) {
 //   questionElement.innerText = question.quq;
@@ -138,31 +154,4 @@ function displayQuestion() {
 //   if (target.matches ("button")) {
 //     const answer = target.getAttribute ("data-answer")
 //   }
-// }
-
-// // need to render each question
-
-// const questions = [
-//   {
-//     title: "Commonly used data types DO NOT INCLUDE:",
-//     choices: ["Strings", "Booleans", "Alerts", "Numbers" ],
-//     correctAnswer:"Alerts"
-
-//     title: "The condition in an if an else statement is enclosed within:",
-//     choices: ["Quotes", "Curly Braces", "Parenthesis", "Square Brackets" ],
-//     correctAnswer:"Curly Braces"
-
-//     title: "Arrays in Javascript can be used to store:",
-//     choices: ["Numbers & Strings", "Other Arrays", "Bookmarks", "All of the above" ],
-//     correctAnswer:"Curly Braces"
-
-//     title: "String values must be enclosed within__________ when being assigned to variables:",
-//     choices: ["Commas", "Curly Braces", "Parenthesis", "Quotes" ],
-//     correctAnswer:"Curly Braces"
-
-//     title: "A very useful tool used during development and debugging for printing content to the debugger is:",
-//     choices: ["Javascript", "Terminal Bash", "for loops", "console,log" ],
-//     correctAnswer:"Alerts"
-
-//   }
-// ]
+//

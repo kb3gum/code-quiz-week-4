@@ -1,6 +1,6 @@
 // Question Bank
 
-var questionBank = [
+const questionBank = [
   {
     question: "Commonly used data types DO NOT INCLUDE:",
     option: ["Strings", "Booleans", "Alerts", "Numbers"],
@@ -10,7 +10,7 @@ var questionBank = [
   {
     question: "The condition in an if an else statement is enclosed within:",
     option: ["Quotes", "Curly Braces", "Parenthesis", "Square Brackets"],
-    answer: "Parenthesis",
+    answer: "Curly Braces",
   },
 
   {
@@ -20,22 +20,21 @@ var questionBank = [
   },
 ];
 
-var question = document.getElementById("question");
-var quizContainer = document.getElementById("quiz-container");
-var scorecard = document.getElementById("scoreboard");
-var option0 = document.getElementById("option0");
-var option1 = document.getElementById("option1");
-var option2 = document.getElementById("option2");
-var option3 = document.getElementById("option3");
-var next = document.querySelector(".next");
-var points = document.getElementById("score");
-var span = document.querySelectorAll("span");
-var i = 0;
-var score = 0;
+const question = document.getElementById("question");
+const quizContainer = document.getElementById("quiz-container");
+const scorecard = document.getElementById("scoreboard");
+const option0 = document.getElementById("option0");
+const option1 = document.getElementById("option1");
+const option2 = document.getElementById("option2");
+const option3 = document.getElementById("option3");
+const next = document.querySelector(".next");
+const points = document.getElementById("score");
+const span = document.querySelectorAll("span");
+const i = 0;
+const score = 0;
 
 //function to display questions
 function displayQuestion() {
-  // what is var a? where is it decalred? HTML
 
   for (var a = 0; a < span.length; a++) {
     span[a].style.background = "none";
@@ -49,8 +48,24 @@ function displayQuestion() {
     "Question" + " " + (i + 1) + " " + "of" + " " + questionBank.length;
 }
 
-// Add timer
+// Timer
 
+const verifyChoice = (event) => {
+  const target = event.target;
+  const currentTarget = event.currentTarget;
+  if (target.matches(“button”)) {
+    const answer = target.getAttribute(“data-answer”);
+    const correctAnswer = currentTarget.getAttribute(“data-answer”);
+    if (answer === correctAnswer) {
+      index += 1;
+      quizContainer.removeChild(document.getElementById(“questions-container”));
+      renderQuestion();
+    } else {
+      alert(“Incorrect - Try Again”);
+      timerValue -= 5;
+    }
+  }
+  
 // function to calculate score
 
 function calcScore(e) {
