@@ -8,4 +8,4 @@ User will be presented with a landing page informing them about the quiz and the
 
 ## Deployment Link
 
-Click [here] ( https://kb3gum.github.io/code-quiz-week-4/) to view project on GitHub pages.
+Click [here](https://kb3gum.github.io/code-quiz-week-4/) to view project on GitHub pages.
